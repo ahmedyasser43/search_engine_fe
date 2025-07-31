@@ -3,8 +3,15 @@ async function fetchAnalytics() {
   analyticsDiv.innerHTML = 'Loading...';
   try {
     // Replace with your actual endpoint
-    const response = await axios.get('https://searchengine-production-ee44.up.railway.app/search_analytics/');
-    const data = response.data.body;
+    let data;
+    try {
+      const response = await axios.get('https://searchengine-production-ee44.up.railway.app/search_analytics/');
+      data = response.data.body;
+      
+    } catch (error) {
+      console.error("Suggestions error:", error);
+      alert("Could not fetch suggestions. Try disabling ad blockers or opening in Incognito.");
+    }
 
     // Top Searches Table
     let topSearchesTable = `

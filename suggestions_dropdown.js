@@ -33,10 +33,13 @@ export function createDropdown(suggestions, queryInput, is_matched) {
 }
 
 async function search_by_id(id) {
-    const api_url = `https://searchengine-production-ee44.up.railway.app/search_engine/search?id=${id}`;
-    const response = await axios.get(api_url);
-    const suggestions = response.data.body;
-
+    try {
+      const api_url = `https://searchengine-production-ee44.up.railway.app/search_engine/search?id=${id}`;
+      const response = await axios.get(api_url);
+    } catch (error) {
+      console.error("Suggestions error:", error);
+      alert("Could not fetch suggestions. Try disabling ad blockers or opening in Incognito.");
+    }
     console.log(id);
 }
 
