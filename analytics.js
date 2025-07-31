@@ -3,7 +3,7 @@ async function fetchAnalytics() {
   analyticsDiv.innerHTML = 'Loading...';
   try {
     // Replace with your actual endpoint
-    const response = await axios.get('http://127.0.0.1:3000/search_analytics/');
+    const response = await axios.get('https://searchengine-production-ee44.up.railway.app/search_analytics/');
     const data = response.data.body;
 
     // Top Searches Table

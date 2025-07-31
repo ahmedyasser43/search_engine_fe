@@ -6,7 +6,7 @@ const resultsDiv = document.getElementById('results');
 
 queryInput.addEventListener('focusin', async () => {
   try {
-    const api_url = `http://localhost:3000/search_suggestions`;
+    const api_url = `https://searchengine-production-ee44.up.railway.app/search_suggestions`;
 
     const response = await axios.get(api_url);
     const suggestions = response.data.body;
@@ -39,7 +39,7 @@ searchBtn.addEventListener('click', async () => {
   if (!query) return;
 
   try {
-    const api_url = `http://localhost:3000/search_suggestions?query=${encodeURIComponent(query)}`
+    const api_url = `https://searchengine-production-ee44.up.railway.app/search_suggestions?query=${encodeURIComponent(query)}`
     console.log("API UR: ", api_url);
     
     const response = await axios.get(api_url);
@@ -72,7 +72,7 @@ searchBtn.addEventListener('click', async () => {
 // To detect when the user adds or deletes data in the input, use the 'input' event:
 queryInput.addEventListener('input', async (query) => {
 
-  const api_url = `http://localhost:3000/search_suggestions?query=${query.target.value}`;
+  const api_url = `https://searchengine-production-ee44.up.railway.app/search_suggestions?query=${query.target.value}`;
   console.log("API URL: ", api_url);
 
   const response = await axios.get(api_url);
